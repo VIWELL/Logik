@@ -3,60 +3,166 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Site d'essai</title>
+<title>Logik : site en construction</title>
 <style>
-:root { --encre: #0B1B3F; --accent: #C0393B; --gris: #475577; --fond: #F5F7FC; --trait: #C9D1E3; }
+:root { --nuit: #0E1726; --encre: #1B2536; --gris: #5B6678; --clair: #F4F6FA; --trait: #DCE2EC; --accent: #1F8FFF; --accent2: #17C3B2; --blanc: #fff; }
 * { box-sizing: border-box; }
-body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; color: var(--encre); background: #fff; line-height: 1.5; }
-header, main, footer { max-width: 960px; margin: 0 auto; padding: 0 20px; }
-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 18px; padding-bottom: 18px; flex-wrap: wrap; }
-.nom { font-weight: 800; font-size: 1.25rem; }
-.nom span { color: var(--accent); }
-nav a { color: var(--gris); text-decoration: none; margin-left: 18px; font-size: .95rem; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: "Segoe UI", system-ui, Arial, sans-serif; color: var(--encre); background: var(--blanc); line-height: 1.55; }
+.bandeau { background: #FFF4CC; color: #5A4500; font-size: .82rem; text-align: center; padding: 6px 16px; }
+.large { max-width: 1120px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+header { position: sticky; top: 0; background: rgba(255,255,255,.96); border-bottom: 1px solid var(--trait); z-index: 5; }
+.tete { display: flex; align-items: center; gap: 18px; padding-block: 14px; flex-wrap: wrap; }
+.logo { font-weight: 800; font-size: 1.35rem; letter-spacing: .06em; color: var(--nuit); }
+.logo span { color: var(--accent); }
+nav { display: flex; gap: 18px; flex-wrap: wrap; margin-left: auto; align-items: center; }
+nav a { color: var(--gris); text-decoration: none; font-size: .93rem; }
 nav a:hover { color: var(--accent); }
-.hero { background: var(--fond); border-top: 3px solid var(--accent); border-radius: 10px; padding: 44px 28px; margin: 10px 0 34px 0; }
-.hero h1 { font-size: clamp(1.7rem, 4vw, 2.5rem); margin: 0 0 10px 0; line-height: 1.15; }
-.hero p { color: var(--gris); max-width: 60ch; margin: 0 0 20px 0; font-size: 1.05rem; }
-.bouton { display: inline-block; background: var(--encre); color: #fff; padding: 11px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; }
-.bouton:hover { background: var(--accent); }
-h2 { font-size: 1.35rem; margin: 0 0 14px 0; }
-.cartes { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-bottom: 36px; }
-.carte { border: 1px solid var(--trait); border-radius: 8px; padding: 18px; }
-.carte h3 { margin: 0 0 6px 0; font-size: 1.05rem; color: var(--accent); }
-.carte p { margin: 0; color: var(--gris); font-size: .97rem; }
-.contact { border: 1px solid var(--trait); border-radius: 8px; padding: 22px; margin-bottom: 36px; }
-footer { border-top: 1px solid var(--trait); color: var(--gris); font-size: .85rem; padding-top: 14px; padding-bottom: 28px; }
+.bouton { display: inline-block; background: var(--accent); color: #fff; padding: 11px 20px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: .95rem; }
+.bouton.clair { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.5); }
+.bouton.sombre { background: var(--nuit); }
+.hero { background: linear-gradient(135deg, var(--nuit) 0%, #16324F 70%, #17506B 100%); color: #fff; }
+.hero .large { padding-block: 84px 72px; }
+.hero h1 { font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.1; margin: 0 0 16px 0; max-width: 16ch; text-wrap: balance; }
+.hero h1 em { font-style: normal; color: var(--accent2); }
+.hero p { max-width: 56ch; color: #C9D6E6; font-size: 1.08rem; margin: 0 0 26px 0; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.chiffres { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 48px; }
+.chiffres div { border-top: 2px solid var(--accent2); padding-top: 12px; }
+.chiffres b { display: block; font-size: 2rem; line-height: 1.1; }
+.chiffres span { color: #C9D6E6; font-size: .92rem; }
+section .large { padding-block: 64px; }
+.sur { text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; color: var(--accent); font-weight: 700; margin: 0 0 8px 0; }
+h2 { font-size: clamp(1.5rem, 3.2vw, 2.2rem); line-height: 1.2; margin: 0 0 14px 0; text-wrap: balance; }
+.chapo { color: var(--gris); max-width: 62ch; margin: 0 0 28px 0; }
+.grille { display: grid; gap: 16px; }
+.g4 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.g3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.carte { border: 1px solid var(--trait); border-radius: 14px; padding: 22px; background: #fff; min-width: 0; }
+.carte h3 { margin: 0 0 6px 0; font-size: 1.08rem; }
+.carte p { margin: 0; color: var(--gris); font-size: .95rem; }
+.carte .num { color: var(--accent); font-weight: 700; font-size: .85rem; margin-bottom: 8px; display: block; }
+.gris { background: var(--clair); }
+.sombre2 { background: var(--nuit); color: #fff; }
+.sombre2 .chapo, .sombre2 p { color: #C9D6E6; }
+.logos { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+.logos div { border: 1px dashed var(--trait); border-radius: 10px; padding: 22px 10px; text-align: center; color: var(--gris); font-size: .85rem; }
+.appel { background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%); color: #fff; }
+.appel h2 { margin-bottom: 8px; }
+.appel p { margin: 0 0 22px 0; max-width: 56ch; }
+footer { background: var(--nuit); color: #C9D6E6; font-size: .9rem; }
+footer .large { padding-block: 34px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px; }
+footer b { color: #fff; display: block; margin-bottom: 6px; }
+footer a { color: #C9D6E6; text-decoration: none; display: block; }
 </style>
 </head>
 <body>
+<div class="bandeau">Site en construction. Version de démonstration.</div>
 <header>
-<div class="nom">Votre <span>Entreprise</span></div>
+<div class="large tete">
+<div class="logo">LOGIK<span>.</span></div>
 <nav>
-<a href="#services">Services</a>
-<a href="#contact">Contact</a>
+<a href="#accueil">Accueil</a>
+<a href="#valeurs">À propos</a>
+<a href="#expertises">Expertises et services</a>
+<a href="#clients">Cas clients</a>
+<a href="#carrieres">Carrières</a>
+<a href="#actualites">Actualités</a>
+<a class="bouton" href="#contact">Parler à un expert</a>
 </nav>
+</div>
 </header>
-<main>
-<section class="hero">
-<h1>Une phrase qui dit ce que vous faites, et pour qui.</h1>
-<p>Deux lignes pour expliquer le bénéfice : ce que le client gagne en travaillant avec vous.</p>
-<a class="bouton" href="#contact">Prendre contact</a>
-</section>
-<section id="services">
-<h2>Nos services</h2>
-<div class="cartes">
-<div class="carte"><h3>Service 1</h3><p>Une ou deux phrases simples sur ce premier service.</p></div>
-<div class="carte"><h3>Service 2</h3><p>Une ou deux phrases simples sur ce deuxième service.</p></div>
-<div class="carte"><h3>Service 3</h3><p>Une ou deux phrases simples sur ce troisième service.</p></div>
+<section class="hero" id="accueil">
+<div class="large">
+<h1>Des infrastructures informatiques <em>qui avancent avec vous</em></h1>
+<p>Logik accompagne les systèmes d'information de ses clients, avec des équipes proches du terrain.</p>
+<div class="actions">
+<a class="bouton" href="#expertises">Découvrir nos expertises</a>
+<a class="bouton clair" href="#carrieres">Rejoindre l'équipe</a>
+</div>
+<div class="chiffres">
+<div><b>Conseil</b><span>comprendre votre système d'information</span></div>
+<div><b>Projets</b><span>construire et faire évoluer</span></div>
+<div><b>Exploitation</b><span>faire tourner au quotidien</span></div>
+</div>
 </div>
 </section>
-<section id="contact" class="contact">
-<h2>Contact</h2>
-<p>Adresse, téléphone et courriel de l'entreprise, à écrire ici.</p>
+<section id="valeurs">
+<div class="large">
+<p class="sur">À propos</p>
+<h2>Une façon de travailler</h2>
+<p class="chapo">La performance tient autant à la maîtrise technique qu'à la qualité des relations.</p>
+<div class="grille g4">
+<div class="carte"><h3>Audacieuse</h3><p>Proposer des solutions, et les assumer.</p></div>
+<div class="carte"><h3>Adaptable</h3><p>Partir du contexte et du rythme de chaque client.</p></div>
+<div class="carte"><h3>Innovante</h3><p>Faire évoluer, pas seulement maintenir.</p></div>
+<div class="carte"><h3>Humaine</h3><p>Des relations durables, fondées sur l'écoute.</p></div>
+</div>
+</div>
 </section>
-</main>
+<section class="gris" id="expertises">
+<div class="large">
+<p class="sur">Expertises</p>
+<h2>Six domaines d'expertise</h2>
+<p class="chapo">De l'architecte au technicien, des équipes pour construire, maintenir et améliorer votre infrastructure.</p>
+<div class="grille g3">
+<div class="carte"><span class="num">01</span><h3>Production et exploitation</h3><p>Supervision, pilotage et continuité de service.</p></div>
+<div class="carte"><span class="num">02</span><h3>Ingénierie système et virtualisation</h3><p>Conception et administration des serveurs.</p></div>
+<div class="carte"><span class="num">03</span><h3>DevOps et cloud</h3><p>Automatisation, déploiement et migration.</p></div>
+<div class="carte"><span class="num">04</span><h3>Sauvegarde et stockage</h3><p>Protéger les données et savoir les restaurer.</p></div>
+<div class="carte"><span class="num">05</span><h3>Réseaux et sécurité</h3><p>Relier les sites et protéger les accès.</p></div>
+<div class="carte"><span class="num">06</span><h3>Poste de travail</h3><p>Équiper et accompagner les utilisateurs.</p></div>
+</div>
+</div>
+</section>
+<section id="solutions">
+<div class="large">
+<p class="sur">Solutions</p>
+<h2>Trois formes d'intervention</h2>
+<div class="grille g3">
+<div class="carte"><h3>Assistance technique</h3><p>Des consultants mobilisés auprès des équipes du client.</p></div>
+<div class="carte"><h3>Forfait et services managés</h3><p>Des projets et une exploitation avec des engagements de résultat.</p></div>
+<div class="carte"><h3>Accord cadre</h3><p>Un partenariat dans la durée, pour simplifier les achats.</p></div>
+</div>
+</div>
+</section>
+<section class="sombre2" id="carrieres">
+<div class="large">
+<p class="sur">Carrières</p>
+<h2>Rejoindre l'équipe</h2>
+<p class="chapo">Rejoindre une équipe qui connaît chacun de ses consultants.</p>
+<a class="bouton" href="#contact">Voir les offres</a>
+</div>
+</section>
+<section id="clients">
+<div class="large">
+<p class="sur">Clients</p>
+<h2>Ils nous font confiance</h2>
+<div class="logos">
+<div>Transport</div><div>Banque</div><div>Industrie</div><div>Secteur public</div><div>Énergie</div>
+</div>
+</div>
+</section>
+<section class="gris" id="actualites">
+<div class="large">
+<p class="sur">Engagements</p>
+<h2>Nos engagements</h2>
+<p class="chapo">Une démarche qualité, et des équipes sensibilisées à la protection des données, à la cybersécurité et à l'impact environnemental.</p>
+</div>
+</section>
+<section class="appel" id="contact">
+<div class="large">
+<h2>Parlons de vos enjeux</h2>
+<p>Un projet, une question : échangeons.</p>
+<a class="bouton sombre" href="#contact">Parler à un expert</a>
+</div>
+</section>
 <footer>
-Site d'essai. Les mentions légales de l'entreprise sont à ajouter avant toute mise en ligne réelle.
+<div class="large">
+<div><b>LOGIK</b>Site en construction.</div>
+<div><b>Le site</b><a href="#accueil">Accueil</a><a href="#expertises">Expertises et services</a><a href="#carrieres">Carrières</a></div>
+<div><b>Démonstration</b>Page réalisée pour montrer ce qu'un site vitrine peut être.</div>
+</div>
 </footer>
 </body>
 </html>
