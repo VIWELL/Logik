@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Site d'essai</title>
+<style>
+:root { --encre: #0B1B3F; --accent: #C0393B; --gris: #475577; --fond: #F5F7FC; --trait: #C9D1E3; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; color: var(--encre); background: #fff; line-height: 1.5; }
+header, main, footer { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 18px; padding-bottom: 18px; flex-wrap: wrap; }
+.nom { font-weight: 800; font-size: 1.25rem; }
+.nom span { color: var(--accent); }
+nav a { color: var(--gris); text-decoration: none; margin-left: 18px; font-size: .95rem; }
+nav a:hover { color: var(--accent); }
+.hero { background: var(--fond); border-top: 3px solid var(--accent); border-radius: 10px; padding: 44px 28px; margin: 10px 0 34px 0; }
+.hero h1 { font-size: clamp(1.7rem, 4vw, 2.5rem); margin: 0 0 10px 0; line-height: 1.15; }
+.hero p { color: var(--gris); max-width: 60ch; margin: 0 0 20px 0; font-size: 1.05rem; }
+.bouton { display: inline-block; background: var(--encre); color: #fff; padding: 11px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; }
+.bouton:hover { background: var(--accent); }
+h2 { font-size: 1.35rem; margin: 0 0 14px 0; }
+.cartes { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-bottom: 36px; }
+.carte { border: 1px solid var(--trait); border-radius: 8px; padding: 18px; }
+.carte h3 { margin: 0 0 6px 0; font-size: 1.05rem; color: var(--accent); }
+.carte p { margin: 0; color: var(--gris); font-size: .97rem; }
+.contact { border: 1px solid var(--trait); border-radius: 8px; padding: 22px; margin-bottom: 36px; }
+footer { border-top: 1px solid var(--trait); color: var(--gris); font-size: .85rem; padding-top: 14px; padding-bottom: 28px; }
+</style>
+</head>
+<body>
+<header>
+<div class="nom">Votre <span>Entreprise</span></div>
+<nav>
+<a href="#services">Services</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+<main>
+<section class="hero">
+<h1>Une phrase qui dit ce que vous faites, et pour qui.</h1>
+<p>Deux lignes pour expliquer le bénéfice : ce que le client gagne en travaillant avec vous.</p>
+<a class="bouton" href="#contact">Prendre contact</a>
+</section>
+<section id="services">
+<h2>Nos services</h2>
+<div class="cartes">
+<div class="carte"><h3>Service 1</h3><p>Une ou deux phrases simples sur ce premier service.</p></div>
+<div class="carte"><h3>Service 2</h3><p>Une ou deux phrases simples sur ce deuxième service.</p></div>
+<div class="carte"><h3>Service 3</h3><p>Une ou deux phrases simples sur ce troisième service.</p></div>
+</div>
+</section>
+<section id="contact" class="contact">
+<h2>Contact</h2>
+<p>Adresse, téléphone et courriel de l'entreprise, à écrire ici.</p>
+</section>
+</main>
+<footer>
+Site d'essai. Les mentions légales de l'entreprise sont à ajouter avant toute mise en ligne réelle.
+</footer>
+</body>
+</html>
