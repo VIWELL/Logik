@@ -208,5 +208,9 @@ dessin();
 var vue = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('vu'); } }); }, { threshold: 0.15 });
 document.querySelectorAll('.carte, .chiffres div').forEach(function (el) { vue.observe(el); });
 </script>
+<style>
+.hero { background: linear-gradient(135deg, rgba(14,23,38,.93) 0%, rgba(22,50,79,.84) 60%, rgba(23,80,107,.68) 100%), url("https://images.pexels.com/photos/4508751/pexels-photo-4508751.jpeg?auto=compress&cs=tinysrgb&w=1600") center / cover no-repeat; }
+footer .large::after { content: "Photo : Pexels"; grid-column: 1 / -1; font-size: .78rem; opacity: .7; }
+</style>
 </body>
 </html>
